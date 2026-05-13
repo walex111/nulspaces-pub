@@ -6,7 +6,7 @@ import { Archive, User } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/80 dark:bg-ink/80 backdrop-blur-md transition-colors duration-300 border-b border-zinc-200/20 dark:border-zinc-800/20">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
@@ -18,6 +18,7 @@ export default function Header() {
             alt="NULSPACES logo"
             width={82}
             height={40}
+            className="dark:invert transition-all"
             priority
           />
         </Link>
@@ -25,7 +26,7 @@ export default function Header() {
         <nav className="flex items-center gap-3">
           <Link
             href="/archive"
-            className="inline-flex h-11 w-11 items-center justify-center text-zinc-700 transition-colors hover:text-zinc-950"
+            className="inline-flex h-11 w-11 items-center justify-center text-zinc-700 dark:text-zinc-400 transition-colors hover:text-ink-text dark:hover:text-paper-text"
             aria-label="Open archive"
             title="Archive"
           >
@@ -34,7 +35,7 @@ export default function Header() {
 
           <Link
             href="/profile"
-            className="inline-flex h-11 w-11 items-center justify-center text-zinc-700 transition-colors hover:text-zinc-950"
+            className="inline-flex h-11 w-11 items-center justify-center text-zinc-700 dark:text-zinc-400 transition-colors hover:text-ink-text dark:hover:text-paper-text"
             aria-label="Open profile page"
             title="Profile"
           >

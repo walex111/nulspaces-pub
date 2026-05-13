@@ -8,26 +8,26 @@ type Props = React.HTMLAttributes<HTMLElement>;
 const components = {
   h1: (props: Props) => (
     <h1
-      className="text-4xl md:text-5xl font-light pt-12 mb-8 text-zinc-900 dark:text-zinc-50 tracking-tight leading-tight"
+      className="text-4xl md:text-5xl font-light pt-12 mb-8 text-ink-text dark:text-paper-text tracking-tight leading-tight"
       {...props}
     />
   ),
   h2: (props: Props) => (
     <h2
-      className="text-2xl md:text-3xl font-medium mt-16 mb-4 text-zinc-800 dark:text-zinc-100"
+      className="text-2xl md:text-3xl font-medium mt-16 mb-4 text-ink-text dark:text-paper-text"
       {...props}
     />
   ),
   h3: (props: Props) => (
     <h3
-      className="text-xl md:text-2xl font-medium mt-10 mb-3 text-zinc-800 dark:text-zinc-200"
+      className="text-xl md:text-2xl font-medium mt-10 mb-3 text-ink-text dark:text-paper-text"
       {...props}
     />
   ),
 
   p: ({ children, ...props }: Props) => (
     <p
-      className="text-[17px] leading-[1.8] text-zinc-700 dark:text-zinc-300 mb-6 antialiased first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-5xl first-letter:font-semibold first-letter:leading-none first-letter:text-zinc-950 dark:first-letter:text-zinc-50"
+      className="text-lg leading-[1.85] text-zinc-700 dark:text-zinc-300 mb-8 antialiased"
       {...props}
     >
       {children}
@@ -35,9 +35,9 @@ const components = {
   ),
 
   blockquote: (props: Props) => (
-    <blockquote className="relative my-12 py-1 pl-8 border-l-2 border-zinc-900 dark:border-zinc-100">
+    <blockquote className="relative my-12 py-1 pl-8 border-l-2 border-ink-text dark:border-paper-text">
       <div
-        className="italic text-2xl md:text-3xl text-zinc-800 dark:text-zinc-200 leading-relaxed"
+        className="italic text-2xl md:text-3xl text-ink-text dark:text-paper-text leading-relaxed opacity-90"
         {...props}
       />
     </blockquote>
@@ -47,7 +47,7 @@ const components = {
     const codeHTML = highlight(children as string);
     return (
       <code
-        className="font-mono text-[14px] bg-zinc-100 dark:bg-zinc-800/50 px-1.5 py-0.5 rounded transition-colors"
+        className="font-mono text-[14px] bg-zinc-100 dark:bg-ink px-1.5 py-0.5 rounded transition-colors border border-zinc-200/50 dark:border-zinc-800/50"
         dangerouslySetInnerHTML={{ __html: codeHTML }}
         {...props}
       />
@@ -63,7 +63,7 @@ const components = {
 
   a: ({ href, children, ...props }: ComponentPropsWithoutRef<"a">) => {
     const className =
-      "font-medium text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 transition-all";
+      "font-medium text-ink-text dark:text-paper-text underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:decoration-ink-text dark:hover:decoration-paper-text transition-all";
     if (href?.startsWith("/"))
       return (
         <Link href={href} className={className} {...props}>
@@ -98,7 +98,7 @@ const components = {
   li: (props: Props) => <li className="pl-2" {...props} />,
 
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
-    <div className="my-10 overflow-x-auto border-y border-zinc-100 dark:border-zinc-800">
+    <div className="my-10 overflow-x-auto border-y border-zinc-100 dark:border-zinc-800/50">
       <table className="w-full font-mono text-[13px] text-left">
         <thead>
           <tr className="text-zinc-400 dark:text-zinc-500 uppercase tracking-tighter">
@@ -109,11 +109,11 @@ const components = {
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-zinc-50 dark:divide-zinc-900">
+        <tbody className="divide-y divide-zinc-50 dark:divide-ink">
           {data.rows.map((row, i) => (
             <tr
               key={i}
-              className="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/50 transition-colors"
+              className="hover:bg-zinc-50/50 dark:hover:bg-ink transition-colors"
             >
               {row.map((cell, ci) => (
                 <td

@@ -10,10 +10,10 @@ interface BlogCardProps {
 export function BlogCard({ post, featured }: BlogCardProps) {
   return (
     <Link href={`/archive/${post.slug}`} className="block group h-full">
-      <article className="h-full border-t border-zinc-200 pt-4 transition-colors hover:border-zinc-900">
-        <div className="mb-4 flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-zinc-500">
+      <article className="h-full border-t border-zinc-200 dark:border-zinc-800/60 pt-4 transition-colors hover:border-ink-text dark:hover:border-paper-text">
+        <div className="mb-4 flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-zinc-500 dark:text-zinc-500">
           <span>{post.category ?? "General"}</span>
-          <span className="h-px w-6 bg-zinc-300" />
+          <span className="h-px w-6 bg-zinc-300 dark:bg-zinc-700" />
           <time dateTime={post.date}>
             {format(new Date(post.date), "MMM d, yyyy")}
           </time>
@@ -21,7 +21,7 @@ export function BlogCard({ post, featured }: BlogCardProps) {
 
         <h3
           className={`
-          mb-3 leading-[1.1] font-semibold tracking-tight text-zinc-950 group-hover:opacity-80
+          mb-3 leading-[1.1] font-semibold tracking-tight text-ink-text dark:text-paper-text group-hover:opacity-80 transition-opacity
           ${featured ? "text-2xl md:text-3xl lg:text-4xl" : "text-[1.35rem] md:text-[1.6rem]"}
         `}
         >
@@ -30,7 +30,7 @@ export function BlogCard({ post, featured }: BlogCardProps) {
 
         <p
           className={`
-          mb-5 text-zinc-600 leading-6 
+          mb-5 text-zinc-600 dark:text-zinc-400 leading-6 
           ${featured ? "text-lg md:text-lg max-w-2xl" : "text-sm max-w-prose line-clamp-3"}
         `}
         >

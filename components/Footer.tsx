@@ -7,11 +7,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="pb-12 px-6">
-      <div className="mx-auto max-w-5xl border-t border-zinc-200 pt-10 dark:border-zinc-800">
+    <footer className="pb-12 px-6 bg-paper dark:bg-ink transition-colors duration-300">
+      <div className="mx-auto max-w-5xl border-t border-zinc-200 dark:border-zinc-800/50 pt-10">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-end">
           <div className="text-center md:text-left">
-            <h2 className="font-mono text-xl tracking-tight text-zinc-950 dark:text-zinc-100">
+            <h2 className="font-mono text-xl tracking-tight text-ink-text dark:text-paper-text">
               NULSPACES
             </h2>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">
@@ -26,7 +26,7 @@ export default function Footer() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400 transition-colors hover:text-zinc-950 dark:hover:text-zinc-100"
+                className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400 transition-colors hover:text-ink-text dark:hover:text-paper-text"
               >
                 {link.name}
               </a>
@@ -34,7 +34,7 @@ export default function Footer() {
           </nav>
 
           <div className="hidden md:block">
-            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-zinc-300">
+            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-zinc-300 dark:text-zinc-600">
               Location: worldwide
             </span>
           </div>

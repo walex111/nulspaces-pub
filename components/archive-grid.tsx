@@ -19,16 +19,16 @@ export function ArchiveGrid({ allPosts }: { allPosts: PostMeta[] }) {
 
   return (
     <>
-      <nav className="mb-8 flex flex-wrap justify-center gap-x-8 gap-y-4">
+      <nav className="mb-12 flex flex-wrap justify-center gap-x-8 gap-y-4">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`font-mono text-[10px] uppercase tracking-[0.3em] transition-all
+            className={`font-mono text-[10px] uppercase tracking-[0.3em] transition-all duration-300
               ${
                 activeCategory === cat
-                  ? "text-zinc-950 font-bold underline underline-offset-8"
-                  : "text-zinc-400 hover:text-zinc-600"
+                  ? "text-ink-text dark:text-paper-text font-bold underline underline-offset-8"
+                  : "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
               }
             `}
           >
@@ -37,7 +37,7 @@ export function ArchiveGrid({ allPosts }: { allPosts: PostMeta[] }) {
         ))}
       </nav>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-x-10">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-10">
         {filteredPosts.map((post, index) => {
           const isMain = index === 0;
           const isSidebar = index === 1;
@@ -52,8 +52,9 @@ export function ArchiveGrid({ allPosts }: { allPosts: PostMeta[] }) {
               key={post.slug}
               className={`
                 ${colSpan}
-                group border-b border-zinc-100 pb-8 md:pb-0 md:border-b-0 
-                md:border-r last:md:border-r-0 md:pr-10 last:md:pr-0 transition-all duration-500
+                group border-b border-zinc-100 dark:border-zinc-800/50 pb-8 md:pb-0 
+                md:border-b-0 md:border-r last:md:border-r-0 md:pr-10 last:md:pr-0 
+                transition-all duration-500
               `}
             >
               <BlogCard post={post} featured={isMain || isSidebar} />
@@ -63,7 +64,7 @@ export function ArchiveGrid({ allPosts }: { allPosts: PostMeta[] }) {
       </div>
 
       {filteredPosts.length === 0 && (
-        <div className="text-center py-20 font-mono text-[10px] uppercase tracking-widest text-zinc-400">
+        <div className="text-center py-20 font-mono text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
           No entries found in {activeCategory}
         </div>
       )}

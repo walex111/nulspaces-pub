@@ -20,41 +20,42 @@ export default async function PostPage({
   if (!post || !post.published) notFound();
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-6 pt-32 pb-24">
+    <main className="flex min-h-screen flex-col items-center px-6 pt-32 pb-24 bg-paper dark:bg-ink transition-colors duration-300">
       <article className="w-full max-w-2xl">
         <nav className="mb-16 flex justify-center">
           <Link
             href="/archive"
-            className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-400 hover:text-zinc-950 transition-colors"
+            className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-400 hover:text-ink-text dark:hover:text-paper-text transition-colors"
           >
             [ Back to Archive ]
           </Link>
         </nav>
 
         <header className="mb-20 text-center">
-          <div className="mb-6 text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-400">
+          <div className="mb-6 text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500">
             {post.category}
           </div>
 
-          <h1 className="font-serif text-4xl md:text-6xl font-light tracking-tight text-zinc-950 italic">
+          <h1 className="font-serif text-4xl md:text-6xl font-light tracking-tight text-ink-text dark:text-paper-text italic">
             {post.title}
           </h1>
 
-          <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-zinc-500 font-serif italic">
+          <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-zinc-500 dark:text-zinc-400 font-serif italic">
             {post.description}
           </p>
 
           <div className="mt-8 flex items-center justify-center space-x-3 font-mono text-[10px] uppercase tracking-widest text-zinc-400">
             <span>{format(new Date(post.date), "MMMM d, yyyy")}</span>
-            <span className="h-1 w-1 rounded-full bg-zinc-200" />
+            <span className="h-1 w-1 rounded-full bg-zinc-200 dark:bg-zinc-800" />
             <span>{post.readingTime}</span>
           </div>
         </header>
 
         <div
           className="prose prose-zinc dark:prose-invert max-w-none 
-          prose-p:text-center prose-p:leading-8 prose-p:text-zinc-800 
-          prose-headings:text-center prose-strong:text-zinc-950"
+          prose-p:text-center prose-p:leading-8 
+          prose-p:text-ink-text dark:prose-p:text-paper-text 
+          prose-headings:text-center prose-strong:text-ink-text dark:prose-strong:text-paper-text"
         >
           <MDXRemote source={post.content} components={useMDXComponents} />
         </div>
