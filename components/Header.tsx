@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Archive, User } from "lucide-react";
+import { Archive, User, Coffee } from "lucide-react";
 
 export default function Header() {
   return (
@@ -24,6 +24,14 @@ export default function Header() {
         </Link>
 
         <nav className="flex items-center gap-3">
+          <a
+            href="https://ko-fi.com/nulspaces"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:block font-mono text-[10px] uppercase tracking-widest text-zinc-400 hover:text-ink-text dark:hover:text-paper-text transition-colors mr-2"
+          >
+            [ Support ]
+          </a>
           <Link
             href="/archive"
             className="inline-flex h-11 w-11 items-center justify-center text-zinc-700 dark:text-zinc-400 transition-colors hover:text-ink-text dark:hover:text-paper-text"

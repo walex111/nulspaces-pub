@@ -34,9 +34,14 @@ export default function Footer() {
           </nav>
 
           <div className="hidden md:block">
-            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-zinc-300 dark:text-zinc-600">
-              Location: worldwide
-            </span>
+            <a
+              href="https://ko-fi.com/nulspaces"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:block font-mono text-[10px] uppercase tracking-widest text-zinc-400 hover:text-ink-text dark:hover:text-paper-text transition-colors mr-2"
+            >
+              [ Support ]
+            </a>
           </div>
         </div>
       </div>
