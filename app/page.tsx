@@ -40,7 +40,10 @@ export default function HomePage() {
           </div>
         </header>
 
-        <div className="prose prose-zinc dark:prose-invert max-w-none">
+        <div
+          className="prose prose-zinc dark:prose-invert max-w-none 
+                prose-h1:text-inherit prose-h2:text-inherit prose-h3:text-inherit"
+        >
           <MDXRemote source={post.content} components={useMDXComponents} />
         </div>
 

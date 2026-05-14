@@ -8,19 +8,19 @@ type Props = React.HTMLAttributes<HTMLElement>;
 const components = {
   h1: (props: Props) => (
     <h1
-      className="text-4xl md:text-5xl font-light pt-12 mb-8 text-ink-text dark:text-paper-text tracking-tight leading-tight"
+      className="text-5xl md:text-6xl lg:text-7xl font-light pt-20 mb-12 text-ink-text dark:text-paper-text tracking-tighter leading-[1.1]"
       {...props}
     />
   ),
   h2: (props: Props) => (
     <h2
-      className="text-2xl md:text-3xl font-medium mt-16 mb-4 text-ink-text dark:text-paper-text"
+      className="text-3xl md:text-4xl lg:text-5xl font-medium mt-32 mb-8 text-ink-text dark:text-paper-text tracking-tight leading-tight"
       {...props}
     />
   ),
   h3: (props: Props) => (
     <h3
-      className="text-xl md:text-2xl font-medium mt-10 mb-3 text-ink-text dark:text-paper-text"
+      className="text-2xl md:text-3xl lg:text-4xl font-medium mt-20 mb-6 text-ink-text dark:text-paper-text tracking-tight leading-snug"
       {...props}
     />
   ),
@@ -54,16 +54,9 @@ const components = {
     );
   },
 
-  span: (props: Props) => (
-    <span
-      className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mb-2 block"
-      {...props}
-    />
-  ),
-
   a: ({ href, children, ...props }: ComponentPropsWithoutRef<"a">) => {
     const className =
-      "font-medium text-ink-text dark:text-paper-text underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:decoration-ink-text dark:hover:decoration-paper-text transition-all";
+      "font-medium text-ink-text dark:text-paper-text underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:text-blue-600 dark:hover:text-blue-400 hover:decoration-blue-600 dark:hover:decoration-blue-400 transition-all cursor-pointer";
     if (href?.startsWith("/"))
       return (
         <Link href={href} className={className} {...props}>
@@ -82,6 +75,13 @@ const components = {
       </a>
     );
   },
+
+  span: (props: Props) => (
+    <span
+      className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mt-24 mb-4 block"
+      {...props}
+    />
+  ),
 
   ul: (props: Props) => (
     <ul
