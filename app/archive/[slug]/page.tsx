@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
-import { useMDXComponents } from "@/components/mdxComponents";
+import { mdxComponents } from "@/components/mdxComponents";
 
 export async function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -57,7 +57,7 @@ export default async function PostPage({
           prose-p:text-ink-text dark:prose-p:text-paper-text 
           prose-headings:text-center prose-strong:text-ink-text dark:prose-strong:text-paper-text"
         >
-          <MDXRemote source={post.content} components={useMDXComponents} />
+          <MDXRemote source={post.content} components={mdxComponents} />
         </div>
       </article>
     </main>

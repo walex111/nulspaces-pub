@@ -84,6 +84,7 @@ export default function RootLayout({
         ${cormorantGaramond.variable} 
         ${inter.variable}
       `}
+      suppressHydrationWarning
     >
       <body className="antialiased tracking-tight">
         <div className="w-full min-h-screen flex flex-col px-5 md:px-10 lg:px-20 font-serif">

@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Archive, User, Coffee } from "lucide-react";
+import { Archive, User } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/80 dark:bg-ink/80 backdrop-blur-md transition-colors duration-300 border-b border-zinc-200/20 dark:border-zinc-800/20">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/80 dark:bg-ink/80 backdrop-blur-md transition-colors duration-300">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 pt-12">
         <Link
           href="/"
           className="flex items-center transition-opacity hover:opacity-75"

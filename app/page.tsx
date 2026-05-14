@@ -2,7 +2,7 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getLatestPosts, getPostBySlug } from "@/lib/posts";
-import { useMDXComponents } from "@/components/mdxComponents";
+import { mdxComponents } from "@/components/mdxComponents";
 
 export default function HomePage() {
   const latestPosts = getLatestPosts(1);
@@ -44,7 +44,7 @@ export default function HomePage() {
           className="prose prose-zinc dark:prose-invert max-w-none 
                 prose-h1:text-inherit prose-h2:text-inherit prose-h3:text-inherit"
         >
-          <MDXRemote source={post.content} components={useMDXComponents} />
+          <MDXRemote source={post.content} components={mdxComponents} />
         </div>
 
         <footer className="flex flex-col items-center pt-12">

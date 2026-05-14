@@ -1,4 +1,3 @@
-"use client";
 import React, { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
 import { highlight } from "sugar-high";
@@ -8,7 +7,7 @@ type Props = React.HTMLAttributes<HTMLElement>;
 const components = {
   h1: (props: Props) => (
     <h1
-      className="text-5xl md:text-6xl lg:text-7xl font-light pt-20 mb-12 text-ink-text dark:text-paper-text tracking-tighter leading-[1.1]"
+      className="text-5xl md:text-6xl lg:text-7xl font-light pt-12 mb-12 text-ink-text dark:text-paper-text tracking-tighter leading-[1.1]"
       {...props}
     />
   ),
@@ -55,19 +54,37 @@ const components = {
   },
 
   a: ({ href, children, ...props }: ComponentPropsWithoutRef<"a">) => {
+    const isAmazon = href?.includes("amazon.com");
+    let finalHref = href;
+
+    if (isAmazon && href) {
+      try {
+        const url = new URL(href);
+        // Automatically injects your store ID
+        url.searchParams.set("tag", "nulspaces-20");
+        finalHref = url.toString();
+      } catch {
+        finalHref = href;
+      }
+    }
+
     const className =
-      "font-medium text-ink-text dark:text-paper-text underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:text-blue-600 dark:hover:text-blue-400 hover:decoration-blue-600 dark:hover:decoration-blue-400 transition-all cursor-pointer";
-    if (href?.startsWith("/"))
+      "font-medium text-ink-text dark:text-paper-text underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-[6px] hover:text-blue-600 dark:hover:text-blue-400 hover:decoration-blue-600 dark:hover:decoration-blue-400 transition-all cursor-pointer";
+
+    if (finalHref?.startsWith("/")) {
       return (
-        <Link href={href} className={className} {...props}>
+        <Link href={finalHref} className={className} {...props}>
           {children}
         </Link>
       );
+    }
+
     return (
       <a
-        href={href}
+        href={finalHref}
         target="_blank"
-        rel="noopener noreferrer"
+        // "sponsored" tag is required by Google for affiliate links
+        rel={isAmazon ? "noopener noreferrer sponsored" : "noopener noreferrer"}
         className={className}
         {...props}
       >
@@ -131,6 +148,4 @@ const components = {
   ),
 };
 
-export function useMDXComponents(): typeof components {
-  return components;
-}
+export const mdxComponents = components;

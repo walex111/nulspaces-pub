@@ -52,7 +52,7 @@ export function ArchiveGrid({ allPosts }: { allPosts: PostMeta[] }) {
               key={post.slug}
               className={`
                 ${colSpan}
-                group border-b border-zinc-100 dark:border-zinc-800/50 pb-8 md:pb-0 
+                group dark:border-zinc-800/50 md:pb-0 
                 md:border-b-0 md:border-r last:md:border-r-0 md:pr-10 last:md:pr-0 
                 transition-all duration-500
               `}
