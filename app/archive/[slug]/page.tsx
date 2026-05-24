@@ -25,7 +25,7 @@ export default async function PostPage({
         <nav className="mb-16 flex justify-center">
           <Link
             href="/archive"
-            className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-400 hover:text-ink-text dark:hover:text-paper-text transition-colors"
+            className="group relative font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-400 hover:text-ink-text dark:hover:text-paper-text transition-colors duration-300 py-2 px-4"
           >
             [ Back to Archive ]
           </Link>
@@ -36,11 +36,11 @@ export default async function PostPage({
             {post.category}
           </div>
 
-          <h1 className="font-serif text-4xl md:text-6xl font-light tracking-tight text-ink-text dark:text-paper-text italic">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-ink-text dark:text-paper-text italic leading-[1.15]">
             {post.title}
           </h1>
 
-          <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-zinc-500 dark:text-zinc-400 font-serif italic">
+          <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-zinc-500 dark:text-zinc-400 font-serif italic opacity-85">
             {post.description}
           </p>
 
@@ -51,12 +51,7 @@ export default async function PostPage({
           </div>
         </header>
 
-        <div
-          className="prose prose-zinc dark:prose-invert max-w-none 
-          prose-p:text-center prose-p:leading-8 
-          prose-p:text-ink-text dark:prose-p:text-paper-text 
-          prose-headings:text-center prose-strong:text-ink-text dark:prose-strong:text-paper-text"
-        >
+        <div className="w-full tracking-normal">
           <MDXRemote source={post.content} components={mdxComponents} />
         </div>
       </article>

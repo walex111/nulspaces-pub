@@ -13,13 +13,13 @@ const components = {
   ),
   h2: (props: Props) => (
     <h2
-      className="text-3xl md:text-4xl lg:text-5xl font-medium mt-32 mb-8 text-ink-text dark:text-paper-text tracking-tight leading-tight"
+      className="text-3xl md:text-4xl lg:text-5xl font-medium mt-16 mb-6 text-ink-text dark:text-paper-text tracking-tight leading-tight"
       {...props}
     />
   ),
   h3: (props: Props) => (
     <h3
-      className="text-2xl md:text-3xl lg:text-4xl font-medium mt-20 mb-6 text-ink-text dark:text-paper-text tracking-tight leading-snug"
+      className="text-2xl md:text-3xl lg:text-4xl font-medium mt-12 mb-4 text-ink-text dark:text-paper-text tracking-tight leading-snug"
       {...props}
     />
   ),
@@ -60,7 +60,6 @@ const components = {
     if (isAmazon && href) {
       try {
         const url = new URL(href);
-        // Automatically injects your store ID
         url.searchParams.set("tag", "nulspaces-20");
         finalHref = url.toString();
       } catch {
@@ -69,7 +68,7 @@ const components = {
     }
 
     const className =
-      "font-medium text-ink-text dark:text-paper-text underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-[6px] hover:text-blue-600 dark:hover:text-blue-400 hover:decoration-blue-600 dark:hover:decoration-blue-400 transition-all cursor-pointer";
+      "font-medium text-ink-text dark:text-paper-text underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-[5px] hover:decoration-ink-text dark:hover:decoration-paper-text transition-all cursor-pointer";
 
     if (finalHref?.startsWith("/")) {
       return (
@@ -83,7 +82,6 @@ const components = {
       <a
         href={finalHref}
         target="_blank"
-        // "sponsored" tag is required by Google for affiliate links
         rel={isAmazon ? "noopener noreferrer sponsored" : "noopener noreferrer"}
         className={className}
         {...props}
@@ -95,20 +93,20 @@ const components = {
 
   span: (props: Props) => (
     <span
-      className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mt-24 mb-4 block"
+      className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mt-16 mb-4 block"
       {...props}
     />
   ),
 
   ul: (props: Props) => (
     <ul
-      className="text-[17px] list-disc pl-6 mb-8 space-y-3 text-zinc-700 dark:text-zinc-300"
+      className="text-lg list-disc pl-6 mb-8 space-y-3 text-zinc-700 dark:text-zinc-300"
       {...props}
     />
   ),
   ol: (props: Props) => (
     <ol
-      className="text-[17px] list-decimal pl-6 mb-8 space-y-3 text-zinc-700 dark:text-zinc-300"
+      className="text-lg list-decimal pl-6 mb-8 space-y-3 text-zinc-700 dark:text-zinc-300"
       {...props}
     />
   ),

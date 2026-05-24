@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <main className="flex min-h-screen items-center justify-center px-6 bg-paper dark:bg-ink transition-colors duration-300">
       <div className="text-center">
-        <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.5em] text-zinc-500">
+        <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.5em] text-zinc-500">
           NULSPACES // 404
         </p>
 
@@ -16,12 +16,15 @@ export default function NotFound() {
           The requested coordinate does not exist in this archive.
         </p>
 
-        <Link
-          href="/"
-          className="mt-12 inline-block font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-400 hover:text-ink-text dark:hover:text-paper-text transition-colors"
-        >
-          [ Return to Origin ]
-        </Link>
+        <div className="mt-10">
+          <Link
+            href="/"
+            className="group relative inline-block font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-400 hover:text-ink-text dark:hover:text-paper-text transition-colors duration-300 py-3 px-6"
+          >
+            [ Return to Origin ]
+            <span className="absolute bottom-1 left-6 right-6 h-px bg-ink-text dark:bg-paper-text scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+          </Link>
+        </div>
       </div>
     </main>
   );
